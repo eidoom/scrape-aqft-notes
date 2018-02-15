@@ -17,10 +17,12 @@ def main():
     problem_sheets = all[-4:]
 
     for number, lecture_note_url in enumerate(lecture_notes, 1):
+        print(lecture_note_url)
         with open(f"C:/sync/physics/6_Part_iii/Courses/AQFT/Notes/aqft-n-{number}.pdf", "wb") as file:
             file.write(get(lecture_note_url).content)
 
     for number, problem_sheet_url in enumerate(problem_sheets, 1):
+        print(problem_sheet_url)
         with open(f"C:/sync/physics/6_Part_iii/Courses/AQFT/Example_sheets/aqft-e-{number}.pdf", "wb") as file:
             file.write(get(problem_sheet_url).content)
 
