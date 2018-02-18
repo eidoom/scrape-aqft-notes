@@ -23,7 +23,7 @@ def write_out(course, document_type, number, url):
         exit(f"{document_type} is an unknown document_type!")
 
     filename = f"{COURSES_DIRECTORY}/{course.capitalize()}/{folder}/{course}-{document_type}-{number}.pdf"
-    print(f"{url} -> {filename}")
+    print(f"{url}\n  -> {filename}")
     with open(filename, "wb") as file:
         file.write(get(url).content)
 
