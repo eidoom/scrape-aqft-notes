@@ -14,18 +14,24 @@ def load_site(site):
     return driver
 
 
+def write_out_raw(course, folder, name, url):
+    filename = f"{COURSES_DIRECTORY}/{course.upper()}/{folder}/{course}-{name}.pdf"
+    print(f"{url}\n  -> {filename}")
+    with open(filename, "wb") as file:
+        file.write(get(url).content)
+
+
 def write_out(course, document_type, number, url):
     if document_type == "n":
         folder = "Notes"
     elif document_type == "e":
         folder = "Example_sheets"
+    elif document_type == "p":
+        folder = "Past_papers"
     else:
         exit(f"{document_type} is an unknown document_type!")
 
-    filename = f"{COURSES_DIRECTORY}/{course.capitalize()}/{folder}/{course}-{document_type}-{number}.pdf"
-    print(f"{url}\n  -> {filename}")
-    with open(filename, "wb") as file:
-        file.write(get(url).content)
+    write_out_raw(course, folder, f"{document_type}-{number}", url)
 
 
 def write_out_list(course, document_type, scrape_data):
