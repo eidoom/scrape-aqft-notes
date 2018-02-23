@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-# from string import ascii_lowercase
-
 from com import write_out_list
 
 COURSE = "st"
