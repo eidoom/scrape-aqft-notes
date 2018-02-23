@@ -24,7 +24,7 @@ def write_out_raw(course, folder, name, url):
 def write_out(course, document_type, number, url):
     if document_type == "n":
         folder = "Notes"
-    elif document_type == "e":
+    elif "e" in document_type:
         folder = "Example_sheets"
     elif document_type == "p":
         folder = "Past_papers"
