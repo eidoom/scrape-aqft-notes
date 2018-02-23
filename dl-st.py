@@ -23,5 +23,6 @@ def scrape_st():
 
     print("All done!")
 
-    if __name__ == "__main__":
-        scrape_st()
+
+if __name__ == "__main__":
+    scrape_st()
