@@ -32,7 +32,7 @@ def write_out_list(course, document_type, scrape_data):
         else:
             exit(f"{document_type} is an unknown document_type!")
 
-        write_out(course, folder, f"{document_type}-{number}", url)
+        write_out(course, folder, f"{course}-{document_type}-{number}", url)
 
 
 def get_named_urls(driver, xpath):
