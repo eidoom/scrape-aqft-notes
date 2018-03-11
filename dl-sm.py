@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out_list
+from com import load_site, write_out_list, get_named_urls
 
 SITE = "http://www.damtp.cam.ac.uk/user/cet34/teaching/SM/"
 COURSE = "sm"
@@ -9,14 +9,11 @@ COURSE = "sm"
 
 def scrape_sm():
     driver = load_site(SITE)
-
-    raw = [(el.get_attribute("textContent"), el.get_attribute("href")) for el in
-           driver.find_elements_by_xpath("//div[@class='main']/ul/li/a")]
+    raw = get_named_urls(driver, "//div[@class='main']/ul/li/a")
 
     lecture_notes = []
     problem_sheets = []
     lecture_number = 0
-
     for name, link in raw:
         if "Example" in name:
             problem_number = "".join([a for a in name if a.isdigit()])

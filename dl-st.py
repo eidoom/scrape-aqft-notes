@@ -4,10 +4,11 @@
 from com import write_out_list
 
 COURSE = "st"
+SITE = "http://www.damtp.cam.ac.uk/user/examples"
 
 
 def get_links(*letters):
-    return enumerate([f"http://www.damtp.cam.ac.uk/user/examples/3P6{letter}.pdf" for letter in letters], 1)
+    return enumerate([f"{SITE}/3P6{letter}.pdf" for letter in letters], 1)
 
 
 def scrape_st():

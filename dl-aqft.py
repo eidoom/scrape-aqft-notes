@@ -1,25 +1,30 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out
+from com import load_site, write_out, get_named_urls, get_urls, write_out_list
 
-SITE = "http://www.damtp.cam.ac.uk/user/dbs26/AQFT.html"
+SITE_BASE = "http://www.damtp.cam.ac.uk/user/"
+SITE_0 = f"{SITE_BASE}dbs26/AQFT.html"
+SITE_1 = f"{SITE_BASE}kafr2/aQFT"
 COURSE = "aqft"
 
 
 def scrape_aqft():
-    driver = load_site(SITE)
+    driver = load_site(SITE_0)
+    first = get_urls("//div[@id='content-primary']/ul/li/b/a")
+    lecture_notes = first[:-4]
+    problem_sheets = first[-4:]
 
-    all = [el.get_attribute("href") for el in driver.find_elements_by_xpath("//div[@id='content-primary']/ul/li/b/a")]
+    driver.get(SITE_1)
+    second = get_named_urls(driver, "//body/table/tbody/tr/td/a[contains(@href,'.pdf')]")
 
-    lecture_notes = all[:-4]
-    problem_sheets = all[-4:]
+    write_out_list(COURSE, "n", enumerate(lecture_notes, 1))
+    write_out_list(COURSE, "e", enumerate(problem_sheets, 1))
 
-    for number, lecture_note_url in enumerate(lecture_notes, 1):
-        write_out(COURSE, "n", number, lecture_note_url)
-
-    for number, problem_sheet_url in enumerate(problem_sheets, 1):
-        write_out(COURSE, "e", number, problem_sheet_url)
+    for name, url in second:
+        if name[-4:] == ".pdf":
+            name = name[:-4]
+        write_out(COURSE, "Example_sheets\Kai_Roehrig_solutions", name, url)
 
     print("All done!")
 
