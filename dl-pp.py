@@ -7,18 +7,20 @@ from com import load_site, write_out_raw
 
 COURSES_DIRECTORY = "C:/sync/physics/6_Part_iii/Courses"
 SITE = "https://www.maths.cam.ac.uk/postgrad/mathiii/part-iii-mathematical-tripos-examination-papers"
-COURSES = (("qft", "Quantum Field Theory",),
-           ("sfp", "Symmetries, Fields and Particles", "Symmetries and Particles",
-            "Symmetry and Particle Physics", "Symmetry and Particles", "Elementary Particle Physics",),
-           ("gr", "General Relativity",),
-           ("sft", "Statistical Field Theory", "Statistical Fields Theory",),
-           ("aqft", "Advanced Quantum Field Theory",),
-           ("sm", "Standard Model", "The Standard Model"),
-           ("bh", "Black Holes",),
-           ("st", "String Theory", "Advanced String Theory",),
-           ("susy", "Supersymmetry", "Supersymmetry and Extra Dimensions", "Introduction to Supersymmetry",
-            "Supersymmetry and extra dimensions"),
-           )
+COURSES = (
+    ("qft", "Quantum Field Theory", ),
+    ("sfp", "Symmetries, Fields and Particles", "Symmetries and Particles",
+     "Symmetry and Particle Physics", "Symmetry and Particles", "Elementary Particle Physics",),
+    ("gr", "General Relativity", ),
+    ("sft", "Statistical Field Theory", "Statistical Fields Theory", ),
+    ("aqft", "Advanced Quantum Field Theory", ),
+    ("sm", "Standard Model", "The Standard Model", ),
+    ("bh", "Black Holes", ),
+    ("st", "String Theory", "Advanced String Theory", ),
+    ("susy", "Supersymmetry", "Supersymmetry and Extra Dimensions", "Introduction to Supersymmetry",
+     "Supersymmetry and extra dimensions", ),
+    ("cqs", "Classical and Quantum Solitons", "Solitons and Instantons", ), 
+    )
 
 
 def scrape_past_papers():
