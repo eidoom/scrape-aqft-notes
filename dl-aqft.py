@@ -12,11 +12,14 @@ COURSE = "aqft"
 def scrape_aqft():
     driver = load_site(SITE_0)
     first = get_urls(driver, "//div[@id='content-primary']/ul/li/b/a")
-    lecture_notes = first[:-4]
-    problem_sheets = first[-4:]
 
     driver.get(SITE_1)
     second = get_named_urls(driver, "//body/table/tbody/tr/td/a[contains(@href,'.pdf')]")
+
+    driver.quit()
+
+    lecture_notes = first[:-4]
+    problem_sheets = first[-4:]
 
     write_out_list(COURSE, "n", enumerate(lecture_notes, 1))
     write_out_list(COURSE, "e", enumerate(problem_sheets, 1))
@@ -24,7 +27,7 @@ def scrape_aqft():
     for name, url in second:
         if name[-4:] == ".pdf":
             name = name[:-4]
-        write_out(COURSE, "Example_sheets\Kai_Roehrig_solutions", name, url)
+        write_out(COURSE, "Example_sheets/Kai_Roehrig_solutions", name, url)
 
     print("All done!")
 

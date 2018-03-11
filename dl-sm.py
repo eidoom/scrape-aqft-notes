@@ -10,6 +10,7 @@ COURSE = "sm"
 def scrape_sm():
     driver = load_site(SITE)
     raw = get_named_urls(driver, "//div[@class='main']/ul/li/a")
+    driver.quit()
 
     lecture_notes = []
     problem_sheets = []

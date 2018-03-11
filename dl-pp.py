@@ -56,6 +56,8 @@ def scrape_past_papers():
                 if link is not None:
                     links[course_tup[0]][year] += [link]
 
+    driver.quit()
+
     for course in COURSES:
         acronym = course[0]
         for year in years:
