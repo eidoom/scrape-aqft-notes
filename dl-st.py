@@ -14,7 +14,7 @@ def get_links(*letters):
 def scrape_st():
     lecture_notes = get_links("")
     problem_sheets = get_links("a", "b", "c", "d")
-    problem_solutions = get_links("e")
+    problem_solutions = get_links("e", "f")
 
     write_out_list(COURSE, "n", lecture_notes)
     write_out_list(COURSE, "e", problem_sheets)
