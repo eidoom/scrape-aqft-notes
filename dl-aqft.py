@@ -11,7 +11,7 @@ COURSE = "aqft"
 
 def scrape_aqft():
     driver = load_site(SITE_0)
-    first = get_urls("//div[@id='content-primary']/ul/li/b/a")
+    first = get_urls(driver, "//div[@id='content-primary']/ul/li/b/a")
     lecture_notes = first[:-4]
     problem_sheets = first[-4:]
 
