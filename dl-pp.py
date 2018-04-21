@@ -19,6 +19,7 @@ COURSES = (
     ("susy", "Supersymmetry", "Supersymmetry and Extra Dimensions", "Introduction to Supersymmetry",
      "Supersymmetry and extra dimensions",),
     ("cqs", "Classical and Quantum Solitons", "Solitons and Instantons",),
+    ("c", "Cosmology",),
 )
 
 
