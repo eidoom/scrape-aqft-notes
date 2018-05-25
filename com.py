@@ -3,9 +3,43 @@
 
 from requests import get
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 CHROME_DRIVER_PATH = f"C:\Programs\chromedriver_win32\chromedriver.exe"
 COURSES_DIRECTORY = "C:/sync/physics/6_Part_iii/Courses"
+SITE_BASE = "https://www.maths.cam.ac.uk/"
+COURSES = (
+    ("qft", "Quantum Field Theory",),
+    ("sfp", "Symmetries, Fields and Particles", "Symmetries and Particles",
+     "Symmetry and Particle Physics", "Symmetry and Particles", "Elementary Particle Physics",),
+    ("gr", "General Relativity",),
+    ("sft", "Statistical Field Theory", "Statistical Fields Theory",),
+    ("aqft", "Advanced Quantum Field Theory",),
+    ("sm", "Standard Model", "The Standard Model",),
+    ("bh", "Black Holes",),
+    ("st", "String Theory", "Advanced String Theory",),
+    ("susy", "Supersymmetry", "Supersymmetry and Extra Dimensions", "Introduction to Supersymmetry",
+     "Supersymmetry and extra dimensions",),
+    ("cqs", "Classical and Quantum Solitons", "Solitons and Instantons",),
+    ("c", "Cosmology",),
+)
+
+
+def get_link(driver, course):
+    try:
+        return driver.find_element_by_xpath(f"//th[text()='{course}']/../th/a").get_attribute("href")
+    except NoSuchElementException:
+        try:
+            return driver.find_element_by_xpath(f"//strong[text()='{course}']/../../th/a").get_attribute("href")
+        except NoSuchElementException:
+            try:
+                return driver.find_element_by_xpath(f"//th[text()='{course}']/../td/a").get_attribute("href")
+            except NoSuchElementException:
+                try:
+                    return driver.find_element_by_xpath(
+                        f"//strong[text()='{course}']/../../th/strong/a").get_attribute("href")
+                except NoSuchElementException:
+                    pass
 
 
 def load_site(site):
@@ -14,8 +48,8 @@ def load_site(site):
     return driver
 
 
-def write_out(course, folder, name, url, extension="pdf"):
-    filename = f"{COURSES_DIRECTORY}/{course.upper()}/{folder}/{name}.{extension}"
+def write_out(course, name, url, extension="pdf"):
+    filename = f"{COURSES_DIRECTORY}/{course.upper()}/{name}.{extension}"
     print(f"{url}\n  -> {filename}")
     with open(filename, "wb") as file:
         file.write(get(url).content)
@@ -32,7 +66,7 @@ def write_out_list(course, document_type, scrape_data):
         else:
             exit(f"{document_type} is an unknown document_type!")
 
-        write_out(course, folder, f"{course}-{document_type}-{number}", url)
+        write_out(course, f"{folder}/{course}-{document_type}-{number}", url)
 
 
 def get_named_urls(driver, xpath):

@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out, get_named_urls, get_urls, write_out_list
+from com import load_site, write_out, get_named_urls, get_urls, write_out_list, SITE_BASE
 
-SITE_BASE = "http://www.damtp.cam.ac.uk/user/"
-SITE_0 = f"{SITE_BASE}dbs26/AQFT.html"
-SITE_1 = f"{SITE_BASE}kafr2/aQFT"
+SITE_0 = f"{SITE_BASE}user/dbs26/AQFT.html"
+SITE_1 = f"{SITE_BASE}user/kafr2/aQFT"
 COURSE = "aqft"
 
 
@@ -27,7 +26,7 @@ def scrape_aqft():
     for name, url in second:
         if name[-4:] == ".pdf":
             name = name[:-4]
-        write_out(COURSE, "Example_sheets/Kai_Roehrig_solutions", name, url)
+        write_out(COURSE, f"Example_sheets/Kai_Roehrig_solutions/{name}", url)
 
     print("All done!")
 

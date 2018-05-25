@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import write_out_list
+from com import write_out_list, SITE_BASE
 
 COURSE = "st"
-SITE = "http://www.damtp.cam.ac.uk/user/examples"
+SITE = f"{SITE_BASE}user/examples"
 
 
 def get_links(*letters):
