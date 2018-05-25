@@ -1,24 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out, SITE_BASE, get_link
+from com import load_site, write_out, MATH_BASE, get_link, COURSES
 
-SITE = f"{SITE_BASE}postgrad/mathiii/part-iii-mathematical-tripos-examination-rubrics"
-COURSES = (
-    ("qft", "Quantum Field Theory",),
-    ("sfp", "Symmetries, Fields and Particles", "Symmetries and Particles",
-     "Symmetry and Particle Physics", "Symmetry and Particles", "Elementary Particle Physics",),
-    ("gr", "General Relativity",),
-    ("sft", "Statistical Field Theory", "Statistical Fields Theory",),
-    ("aqft", "Advanced Quantum Field Theory",),
-    ("sm", "Standard Model", "The Standard Model",),
-    ("bh", "Black Holes",),
-    ("st", "String Theory", "Advanced String Theory",),
-    ("susy", "Supersymmetry", "Supersymmetry and Extra Dimensions", "Introduction to Supersymmetry",
-     "Supersymmetry and extra dimensions",),
-    ("cqs", "Classical and Quantum Solitons", "Solitons and Instantons",),
-    ("c", "Cosmology",),
-)
+SITE = f"{MATH_BASE}part-iii-mathematical-tripos-examination-rubrics"
 
 
 def scrape_exam_rubrics():

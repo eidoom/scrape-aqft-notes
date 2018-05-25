@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out_list, get_named_urls, SITE_BASE
+from com import load_site, write_out_list, get_named_urls, DAMTP_BASE
 
-SITE = f"{SITE_BASE}user/cet34/teaching/SM/"
+SITE = f"{DAMTP_BASE}/cet34/teaching/SM/"
 COURSE = "sm"
 
 

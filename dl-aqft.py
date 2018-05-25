@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out, get_named_urls, get_urls, write_out_list, SITE_BASE
+from com import load_site, write_out, get_named_urls, get_urls, write_out_list, DAMTP_BASE
 
-SITE_0 = f"{SITE_BASE}user/dbs26/AQFT.html"
-SITE_1 = f"{SITE_BASE}user/kafr2/aQFT"
+SITE_0 = f"{DAMTP_BASE}dbs26/AQFT.html"
+SITE_1 = f"{DAMTP_BASE}kafr2/aQFT"
 COURSE = "aqft"
 
 

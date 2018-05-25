@@ -7,7 +7,8 @@ from selenium.common.exceptions import NoSuchElementException
 
 CHROME_DRIVER_PATH = f"C:\Programs\chromedriver_win32\chromedriver.exe"
 COURSES_DIRECTORY = "C:/sync/physics/6_Part_iii/Courses"
-SITE_BASE = "https://www.maths.cam.ac.uk/"
+MATH_BASE = "https://www.maths.cam.ac.uk/postgrad/mathiii/"
+DAMTP_BASE = "https://www.damtp.cam.ac.uk/user/"
 COURSES = (
     ("qft", "Quantum Field Theory",),
     ("sfp", "Symmetries, Fields and Particles", "Symmetries and Particles",

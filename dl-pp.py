@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from com import load_site, write_out, COURSES, SITE_BASE, get_link
+from com import load_site, write_out, COURSES, MATH_BASE, get_link
 
-SITE = f"{SITE_BASE}postgrad/mathiii/part-iii-mathematical-tripos-examination-papers"
+SITE = f"{MATH_BASE}part-iii-mathematical-tripos-examination-papers"
 
 
 def scrape_past_papers():
